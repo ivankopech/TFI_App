@@ -32,7 +32,7 @@ class ProductItem extends StatelessWidget {
             tag: product.id,
             child: FadeInImage(
               placeholder: AssetImage('assets/images/logo1.png'),
-              image: NetworkImage(product.imageUrl),
+              image: AssetImage('assets/images/logo1.png'),
               fit: BoxFit.cover,
             ),
           ),
@@ -61,7 +61,7 @@ class ProductItem extends StatelessWidget {
               Icons.shopping_cart,
             ),
             onPressed: () {
-              cart.addItem(product.id, product.price, product.title);
+              cart.addItem(product.id, product.title);
               ScaffoldMessenger.of(context).hideCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(

@@ -96,10 +96,13 @@ class Products with ChangeNotifier {
           id: prodId,
           title: prodData['title'],
           description: prodData['description'],
-          price: prodData['price'],
+          originAddress: prodData['originAddress'],
           isFavorite:
               favoriteData == null ? false : favoriteData[prodId] ?? false,
-          imageUrl: prodData['imageUrl'],
+          destinationAddress: prodData['destinationAddress'],
+          weight: prodData['weight'],
+          height: prodData['height'],
+          longitude: prodData['longitude'],
         ));
       });
       _items = loadedProducts;
@@ -118,16 +121,22 @@ class Products with ChangeNotifier {
         body: json.encode({
           'title': product.title,
           'description': product.description,
-          'imageUrl': product.imageUrl,
-          'price': product.price,
+          'originAddress': product.originAddress,
+          'destinationAddress': product.destinationAddress,
+          'weight': product.weight,
+          'height': product.height,
+          'longitude': product.longitude,
           'creatorId': userId,
         }),
       );
       final newProduct = Product(
         title: product.title,
         description: product.description,
-        price: product.price,
-        imageUrl: product.imageUrl,
+        originAddress: product.originAddress,
+        destinationAddress: product.destinationAddress,
+        weight: product.weight,
+        height: product.height,
+        longitude: product.longitude,
         id: json.decode(response.body)['name'],
       );
       _items.add(newProduct);
@@ -147,8 +156,11 @@ class Products with ChangeNotifier {
           body: json.encode({
             'title': newProduct.title,
             'description': newProduct.description,
-            'imageUrl': newProduct.imageUrl,
-            'price': newProduct.price,
+            'originAddress': newProduct.originAddress,
+            'destinationAddress': newProduct.destinationAddress,
+            'weight': newProduct.weight,
+            'height': newProduct.height,
+            'longitude': newProduct.longitude,
           }));
       _items[prodIndex] = newProduct;
       notifyListeners();

@@ -7,16 +7,22 @@ class Product with ChangeNotifier {
   final String id;
   final String title;
   final String description;
-  final double price;
-  final String imageUrl;
+  final String originAddress;
+  final String destinationAddress;
+  final double weight;
+  final double height;
+  final double longitude;
   bool isFavorite;
 
   Product({
     @required this.id,
     @required this.title,
     @required this.description,
-    @required this.price,
-    @required this.imageUrl,
+    @required this.originAddress,
+    @required this.destinationAddress,
+    @required this.weight,
+    @required this.height,
+    @required this.longitude,
     this.isFavorite = false,
   });
 
