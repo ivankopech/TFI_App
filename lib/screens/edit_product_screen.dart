@@ -249,7 +249,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                         if (value.isEmpty) {
                           return 'Please provide a description';
                         }
-                        if (value.length < 10) {
+                        if (value.length < 8) {
                           return 'Enter a longer description';
                         }
                         return null;
@@ -280,7 +280,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                         if (value.isEmpty) {
                           return 'Please provide a description';
                         }
-                        if (value.length < 10) {
+                        if (value.length < 8) {
                           return 'Enter a longer description';
                         }
                         return null;
@@ -378,9 +378,9 @@ class _EditProductScreenState extends State<EditProductScreen> {
                     ),
                     //LONGITUDE TEXTFIELD
                     TextFormField(
-                      initialValue: _initValues['price'],
+                      initialValue: _initValues['longitude'],
                       decoration: InputDecoration(
-                        labelText: 'Price',
+                        labelText: 'Longitude',
                       ),
                       textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.number,
