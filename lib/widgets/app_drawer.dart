@@ -13,17 +13,17 @@ class AppDrawer extends StatelessWidget {
       child: Column(
         children: <Widget>[
           AppBar(
-            title: Text('Hello Friend'),
+            title: Text('Hello User'),
             automaticallyImplyLeading: false,
           ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.shopping_cart),
-            title: Text('Shop'),
-            onTap: () {
-              Navigator.of(context).pushReplacementNamed('/');
-            },
-          ),
+          // Divider(),
+          // ListTile(
+          //   leading: Icon(Icons.shopping_cart),
+          //   title: Text('Shop'),
+          //   onTap: () {
+          //     Navigator.of(context).pushReplacementNamed('/');
+          //   },
+          // ),
           Divider(),
           ListTile(
             leading: Icon(Icons.payment),
