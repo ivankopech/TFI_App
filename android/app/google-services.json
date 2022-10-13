@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "781556545716",
+    "project_id": "copia-shop",
+    "storage_bucket": "copia-shop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781556545716:android:5d7549c05e5a3418df7fe1",
+        "android_client_info": {
+          "package_name": "com.example.copia_shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "781556545716-oaj60pg78k41mrggnaqedaph898ck3uq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2WF8NFYUxPG8rHQdgTvAxA-fnxUhUE_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "781556545716-oaj60pg78k41mrggnaqedaph898ck3uq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
