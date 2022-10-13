@@ -4,15 +4,19 @@ import 'package:provider/provider.dart';
 import './screens/cart_screen.dart';
 import './screens/products_overview_screen.dart';
 import './screens/product_detail_screen.dart';
-import './providers/products.dart';
-import './providers/cart.dart';
-import './providers/auth.dart';
-import './providers/orders.dart';
 import './screens/orders_screen.dart';
 import './screens/user_products_screen.dart';
 import './screens/edit_product_screen.dart';
 import './screens/authentication_screen.dart';
 import './screens/splash_screen.dart';
+import './screens/fletero_authentication_screen.dart';
+import './screens/user_home_screen.dart';
+import './screens/fletero_home_screen.dart';
+import './providers/products.dart';
+import './providers/cart.dart';
+import './providers/auth.dart';
+import './providers/orders.dart';
+
 import './helpers/custom_route.dart';
 
 void main() => runApp(MyApp());
@@ -74,6 +78,9 @@ class MyApp extends StatelessWidget {
                 UserProductsScreen.routeName: (ctx) => UserProductsScreen(),
                 EditProductScreen.routeName: (ctx) => EditProductScreen(),
                 AuthScreen.routeName: (ctx) => AuthScreen(),
+                FleteroAuthScreen.routeName: (ctx) => FleteroAuthScreen(),
+                UserHomeScreen.routeName: (ctx) => UserHomeScreen(),
+                FleteroHomeScreen.routeName: (ctx) => FleteroHomeScreen(),
               }),
         ));
   }
