@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -37,13 +39,13 @@ class CartScreen extends StatelessWidget {
                     ),
                     backgroundColor: Theme.of(context).primaryColor,
                   ),
-                  OrderButton(cart: cart),
                 ],
               ),
             ),
           ),
           SizedBox(height: 10),
-          Expanded(
+          Container(
+            height: 100,
             child: ListView.builder(
               itemCount: cart.items.length,
               itemBuilder: (ctx, index) => CartItem(
@@ -55,6 +57,7 @@ class CartScreen extends StatelessWidget {
               ),
             ),
           ),
+          OrderButton(cart: cart),
         ],
       ),
     );
@@ -75,26 +78,54 @@ class OrderButton extends StatefulWidget {
 
 class _OrderButtonState extends State<OrderButton> {
   var _isLoading = false;
+  TextEditingController _priceController = TextEditingController();
+  TextEditingController _timeController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
-      child: _isLoading ? CircularProgressIndicator() : Text('Order Now'),
-      onPressed: (widget.cart.totalAmount <= 0 || _isLoading)
-          ? null
-          : () async {
-              setState(() {
-                _isLoading = true;
-              });
-              await Provider.of<Orders>(context, listen: false).addOrder(
-                widget.cart.items.values.toList(),
-                widget.cart.totalAmount,
-              );
-              setState(() {
-                _isLoading = false;
-              });
-              widget.cart.clear();
-            },
-      textColor: Theme.of(context).primaryColor,
+    return Column(
+      children: <Widget>[
+        TextField(
+          controller: _priceController,
+          decoration: InputDecoration(
+            prefixIcon: Icon(Icons.attach_money_outlined),
+            hintText: 'Ingrese precio',
+          ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        TextField(
+          controller: _timeController,
+          decoration: InputDecoration(
+            prefixIcon: Icon(Icons.watch_later_outlined),
+            hintText: 'Ingrese tiempo',
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        ElevatedButton(
+          onPressed: () async {
+            var precio = _priceController.text;
+            var tiempo = _timeController.text;
+            await Provider.of<Orders>(context, listen: false).addOrder(
+              widget.cart.items.values.toList(),
+              widget.cart.totalAmount,
+              double.parse(precio),
+              int.parse(tiempo),
+            );
+            setState(() {
+              _isLoading = false;
+            });
+            widget.cart.clear();
+            print('enviado');
+          },
+          child: Text(
+            'Enviar',
+          ),
+        ),
+      ],
     );
   }
 }

@@ -49,6 +49,8 @@ class Orders with ChangeNotifier {
         OrderItem(
           id: orderId,
           amount: orderData['amount'],
+          presupPrice: orderData['presupPrice'],
+          presupTime: orderData['presupTime'],
           dateTime: DateTime.parse(orderData['dateTime']),
           products: (orderData['products'] as List<dynamic>)
               .map(
@@ -67,7 +69,8 @@ class Orders with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> addOrder(List<CartItem> cartProducts, double total) async {
+  Future<void> addOrder(List<CartItem> cartProducts, double total,
+      double presupPrice, int presupTime) async {
     final url =
         'https://copia-shop-default-rtdb.firebaseio.com/orders/$userId.json?auth=$authToken';
     final timeStamp = DateTime.now();
@@ -75,6 +78,8 @@ class Orders with ChangeNotifier {
       url,
       body: json.encode({
         'amount': total,
+        'presupPrice': presupPrice,
+        'presupTime': presupTime,
         'dateTime': timeStamp.toIso8601String(),
         'products': cartProducts
             .map((cp) => {
@@ -91,6 +96,8 @@ class Orders with ChangeNotifier {
       OrderItem(
         id: json.decode(response.body)['name'],
         amount: total,
+        presupPrice: presupPrice,
+        presupTime: presupTime,
         dateTime: timeStamp,
         products: cartProducts,
       ),
