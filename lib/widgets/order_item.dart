@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 import '../providers/orders.dart' as ord;
 
@@ -19,39 +20,41 @@ class _OrderItemState extends State<OrderItem> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: Duration(milliseconds: 300),
-      height: _expanded
-          ? min(widget.order.products.length * 20.0 + 110.0, 200.0)
-          : 95,
-      child: Card(
-        margin: EdgeInsets.all(10),
-        child: Column(
-          children: <Widget>[
-            ListTile(
-              title: Text('\$${widget.order.amount}'),
-              subtitle: Text(
-                DateFormat('dd MM yyyy hh:mm').format(widget.order.dateTime),
+    final orderData = Provider.of<ord.Orders>(context);
+    return Container(
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 300),
+        height: _expanded
+            ? min(widget.order.products.length * 20.0 + 110.0, 200.0)
+            : 95,
+        child: Card(
+          margin: EdgeInsets.all(10),
+          child: Column(
+            children: <Widget>[
+              ListTile(
+                title: Text('Abrir para ver detalle'),
+                subtitle: Text(
+                  DateFormat('dd MM yyyy hh:mm').format(widget.order.dateTime),
+                ),
+                trailing: IconButton(
+                  icon: Icon(_expanded ? Icons.expand_less : Icons.expand_more),
+                  onPressed: () {
+                    setState(() {
+                      _expanded = !_expanded;
+                    });
+                  },
+                ),
               ),
-              trailing: IconButton(
-                icon: Icon(_expanded ? Icons.expand_less : Icons.expand_more),
-                onPressed: () {
-                  setState(() {
-                    _expanded = !_expanded;
-                  });
-                },
-              ),
-            ),
-            AnimatedContainer(
-              duration: Duration(milliseconds: 300),
-              height: _expanded
-                  ? min(widget.order.products.length * 20.0 + 18.0, 100.0)
-                  : 0,
-              padding: EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 2,
-              ),
-              child: ListView(
+              AnimatedContainer(
+                duration: Duration(milliseconds: 300),
+                height: _expanded
+                    ? min(widget.order.products.length * 20.0 + 18.0, 100.0)
+                    : 0,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 2,
+                ),
+                child: ListView(
                   children: widget.order.products
                       .map(
                         (prod) => Row(
@@ -74,9 +77,11 @@ class _OrderItemState extends State<OrderItem> {
                           ],
                         ),
                       )
-                      .toList()),
-            ),
-          ],
+                      .toList(),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

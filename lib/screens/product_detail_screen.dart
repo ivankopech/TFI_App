@@ -31,8 +31,8 @@ class ProductDetailScreen extends StatelessWidget {
               title: Text(loadedProduct.title),
               background: Hero(
                 tag: loadedProduct.id,
-                child: Image.asset(
-                  'assets/images/logo1.png',
+                child: Image.network(
+                  loadedProduct.imageUrl,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -42,7 +42,7 @@ class ProductDetailScreen extends StatelessWidget {
             delegate: SliverChildListDelegate([
               SizedBox(height: 10),
               Text(
-                '\$${loadedProduct.weight}',
+                '\$${loadedProduct.price}',
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: 20,

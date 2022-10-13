@@ -11,12 +11,16 @@ class OrderItem {
   final double amount;
   final List<CartItem> products;
   final DateTime dateTime;
+  final double presupPrice;
+  final int presupTime;
 
   OrderItem({
     @required this.id,
     @required this.amount,
     @required this.products,
     @required this.dateTime,
+    @required this.presupPrice,
+    @required this.presupTime,
   });
 }
 
@@ -33,7 +37,7 @@ class Orders with ChangeNotifier {
 
   Future<void> fetchAndSetOrders() async {
     final url =
-        'https://shop-app-f1e61-default-rtdb.firebaseio.com/orders/$userId.json?auth=$authToken';
+        'https://copia-shop-default-rtdb.firebaseio.com/orders/$userId.json?auth=$authToken';
     final response = await http.get(url);
     final List<OrderItem> loadedOrders = [];
     final extractedData = json.decode(response.body) as Map<String, dynamic>;
