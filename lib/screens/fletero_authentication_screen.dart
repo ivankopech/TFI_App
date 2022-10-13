@@ -5,13 +5,13 @@ import 'package:provider/provider.dart';
 
 import '../providers/auth.dart';
 import '../models/http_exception.dart';
-import './fletero_authentication_screen.dart';
-import './user_home_screen.dart';
+import './authentication_screen.dart';
+import './fletero_home_screen.dart';
 
 enum AuthMode { Signup, Login }
 
-class AuthScreen extends StatelessWidget {
-  static const routeName = '/auth';
+class FleteroAuthScreen extends StatelessWidget {
+  static const routeName = '/fletero-auth';
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +63,7 @@ class AuthScreen extends StatelessWidget {
                         ],
                       ),
                       child: Text(
-                        'My Shop',
+                        'Fleteros',
                         style: TextStyle(
                           // color: Theme.of(context).accentTextTheme.headline6.color,
                           fontSize: 20,
@@ -172,7 +172,7 @@ class _AuthCardState extends State<AuthCard>
           _authData['email'],
           _authData['password'],
         );
-        Navigator.of(context).pushNamed(UserHomeScreen.routeName);
+        Navigator.of(context).pushNamed(FleteroHomeScreen.routeName);
       } else {
         // Sign user up
         await Provider.of<Auth>(context, listen: false).signUp(
@@ -218,8 +218,8 @@ class _AuthCardState extends State<AuthCard>
     }
   }
 
-  void _fleteroAuth() {
-    Navigator.of(context).pushNamed(FleteroAuthScreen.routeName);
+  void _userAuth() {
+    Navigator.of(context).pushNamed(AuthScreen.routeName);
   }
 
   @override
@@ -332,8 +332,8 @@ class _AuthCardState extends State<AuthCard>
                   textColor: Theme.of(context).primaryColor,
                 ),
                 GestureDetector(
-                  child: Text('SOY FLETERO'),
-                  onTap: _fleteroAuth,
+                  child: Text('SOY USUARIO'),
+                  onTap: _userAuth,
                 ),
               ],
             ),
