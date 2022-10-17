@@ -61,14 +61,14 @@ class _OrderItemState extends State<OrderItem> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(
-                              prod.title,
+                              'Producto: ' + prod.title,
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             Text(
-                              '${prod.quantity}x \$${prod.price}',
+                              '\$${widget.order.presupPrice} a enviar en ${widget.order.presupTime} dias',
                               style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.grey,
