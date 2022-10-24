@@ -12,6 +12,7 @@ import './screens/splash_screen.dart';
 import './screens/fletero_authentication_screen.dart';
 import './screens/user_home_screen.dart';
 import './screens/fletero_home_screen.dart';
+import './screens/pedidos_confirmados_screen.dart';
 import './providers/products.dart';
 import './providers/cart.dart';
 import './providers/auth.dart';
@@ -81,6 +82,8 @@ class MyApp extends StatelessWidget {
                 FleteroAuthScreen.routeName: (ctx) => FleteroAuthScreen(),
                 UserHomeScreen.routeName: (ctx) => UserHomeScreen(),
                 FleteroHomeScreen.routeName: (ctx) => FleteroHomeScreen(),
+                PedidosConfirmadosScreen.routeName: (ctx) =>
+                    PedidosConfirmadosScreen(),
               }),
         ));
   }
