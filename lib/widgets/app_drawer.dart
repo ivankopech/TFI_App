@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../screens/orders_screen.dart';
 import '../screens/user_products_screen.dart';
+import '../screens/pedidos_confirmados_screen.dart';
 import '../providers/auth.dart';
 import '../helpers/custom_route.dart';
 
@@ -16,14 +17,6 @@ class AppDrawer extends StatelessWidget {
             title: Text('Hello User'),
             automaticallyImplyLeading: false,
           ),
-          // Divider(),
-          // ListTile(
-          //   leading: Icon(Icons.shopping_cart),
-          //   title: Text('Shop'),
-          //   onTap: () {
-          //     Navigator.of(context).pushReplacementNamed('/');
-          //   },
-          // ),
           Divider(),
           ListTile(
             leading: Icon(Icons.payment),
@@ -36,6 +29,15 @@ class AppDrawer extends StatelessWidget {
               //     builder: (ctx) => OrdersScreen(),
               //   ),
               // );
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.shopping_cart),
+            title: Text('Pedidos'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(PedidosConfirmadosScreen.routeName);
             },
           ),
           Divider(),
