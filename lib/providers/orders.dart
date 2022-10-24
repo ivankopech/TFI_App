@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
+import '../models/http_exception.dart';
 import './cart.dart';
 
 class OrderItem {
@@ -102,6 +103,11 @@ class Orders with ChangeNotifier {
         products: cartProducts,
       ),
     );
+    notifyListeners();
+  }
+
+  void clear() {
+    _orders = [];
     notifyListeners();
   }
 }
