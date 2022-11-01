@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../screens/orders_screen.dart';
 import '../screens/user_products_screen.dart';
+import '../screens/pedidos_confirmados_screen.dart';
 import '../providers/auth.dart';
 import '../helpers/custom_route.dart';
 
@@ -24,13 +25,27 @@ class FleteroDrawer extends StatelessWidget {
               Navigator.of(context).pushReplacementNamed('/');
             },
           ),
+          // Divider(),
+          // ListTile(
+          //   leading: Icon(Icons.payment),
+          //   title: Text('Orders'),
+          //   onTap: () {
+          //     Navigator.of(context)
+          //         .pushReplacementNamed(OrdersScreen.routeName);
+          //     // Navigator.of(context).pushReplacement(
+          //     //   CustomRoute(
+          //     //     builder: (ctx) => OrdersScreen(),
+          //     //   ),
+          //     // );
+          //   },
+          // ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.payment),
-            title: Text('Orders'),
+            leading: Icon(Icons.confirmation_number_outlined),
+            title: Text('Pedidos confirmados'),
             onTap: () {
               Navigator.of(context)
-                  .pushReplacementNamed(OrdersScreen.routeName);
+                  .pushReplacementNamed(PedidosConfirmadosScreen.routeName);
               // Navigator.of(context).pushReplacement(
               //   CustomRoute(
               //     builder: (ctx) => OrdersScreen(),
