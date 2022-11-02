@@ -14,8 +14,9 @@ class FleteroDrawer extends StatelessWidget {
       child: Column(
         children: <Widget>[
           AppBar(
-            title: Text('Hello Fletero'),
+            title: Text('Menu de opciones'),
             automaticallyImplyLeading: false,
+            backgroundColor: Colors.indigo,
           ),
           Divider(),
           ListTile(

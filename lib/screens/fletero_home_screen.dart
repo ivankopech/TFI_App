@@ -10,13 +10,28 @@ class FleteroHomeScreen extends StatefulWidget {
 }
 
 class _FleteroHomeScreenState extends State<FleteroHomeScreen> {
+  final logoImage = 'assets/images/transporte.png';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('fleteros'),
+        title: Text('Menu Principal'),
+        backgroundColor: Colors.indigo,
       ),
       drawer: FleteroDrawer(),
+      body: Column(
+        children: <Widget>[
+          Padding(padding: EdgeInsets.only(top: 80)),
+          Image.asset(
+            logoImage,
+            fit: BoxFit.cover,
+          ),
+          Text(
+            'Bienvenido!',
+            style: TextStyle(fontSize: 30),
+          )
+        ],
+      ),
     );
   }
 }

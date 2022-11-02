@@ -14,8 +14,9 @@ class AppDrawer extends StatelessWidget {
       child: Column(
         children: <Widget>[
           AppBar(
-            title: Text('Hello User'),
+            title: Text('Menu de opciones'),
             automaticallyImplyLeading: false,
+            backgroundColor: Colors.indigo,
           ),
           Divider(),
           ListTile(

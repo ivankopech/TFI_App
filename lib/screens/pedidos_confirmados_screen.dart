@@ -29,7 +29,10 @@ class _PedidosConfirmadosScreenState extends State<PedidosConfirmadosScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Pedidos')),
+      appBar: AppBar(
+        title: Text('Pedidos'),
+        backgroundColor: Colors.indigo,
+      ),
       drawer: AppDrawer(),
       body: FutureBuilder(
         future: _ordersFuture,

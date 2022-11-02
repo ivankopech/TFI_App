@@ -33,6 +33,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Your orders'),
+        backgroundColor: Colors.indigo,
       ),
       drawer: AppDrawer(),
       body: FutureBuilder(

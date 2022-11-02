@@ -10,13 +10,28 @@ class UserHomeScreen extends StatefulWidget {
 }
 
 class _UserHomeScreenState extends State<UserHomeScreen> {
+  final logoImage = 'assets/images/transporte.png';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('usuarios'),
+        title: Text('Menu principal'),
+        backgroundColor: Colors.indigo,
       ),
       drawer: AppDrawer(),
+      body: Column(
+        children: <Widget>[
+          Padding(padding: EdgeInsets.only(top: 80)),
+          Image.asset(
+            logoImage,
+            fit: BoxFit.cover,
+          ),
+          Text(
+            'Bienvenido!',
+            style: TextStyle(fontSize: 30),
+          )
+        ],
+      ),
     );
   }
 }

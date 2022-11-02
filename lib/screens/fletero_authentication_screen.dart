@@ -325,14 +325,23 @@ class _AuthCardState extends State<AuthCard>
                   ),
                 FlatButton(
                   child: Text(
-                      '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'} INSTEAD'),
+                    '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'} INSTEAD',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
                   onPressed: _switchAuthMode,
                   padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 4),
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   textColor: Theme.of(context).primaryColor,
                 ),
                 GestureDetector(
-                  child: Text('SOY USUARIO'),
+                  child: Text(
+                    'SOY USUARIO',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
                   onTap: _userAuth,
                 ),
               ],

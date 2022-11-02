@@ -142,6 +142,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Edit Product'),
+        backgroundColor: Colors.indigo,
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.save),
