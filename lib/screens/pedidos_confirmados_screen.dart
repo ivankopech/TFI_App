@@ -53,7 +53,7 @@ class _PedidosConfirmadosScreenState extends State<PedidosConfirmadosScreen> {
                 builder: (ctx, orderData, child) => ListView.builder(
                   itemCount: orderData.orders.length,
                   itemBuilder: (ctx, index) =>
-                      OrderItem(orderData.orders[index], orderData),
+                      AnotherOrderItem(orderData.orders[index], orderData),
                 ),
               );
             }

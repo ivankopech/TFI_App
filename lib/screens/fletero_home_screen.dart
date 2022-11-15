@@ -21,7 +21,7 @@ class _FleteroHomeScreenState extends State<FleteroHomeScreen> {
       drawer: FleteroDrawer(),
       body: Column(
         children: <Widget>[
-          Padding(padding: EdgeInsets.only(top: 80)),
+          Padding(padding: EdgeInsets.only(top: 50)),
           Image.asset(
             logoImage,
             fit: BoxFit.cover,
